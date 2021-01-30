@@ -1,111 +1,148 @@
 /* CSS RESET */
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 /* Now coontainer will work as the base of the site color */
-.container{
-    min-height: 100vh;
-    width: 100%;
-    background-color: #485461;
-    background-image: linear-gradient(135deg, #485461 0%,#28313b 74%);
-    overflow-x: hidden;
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+  overflow-x: hidden;
 }
-.navbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    height: 3rem;
-    /* background-color: #fff; */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 3rem;
+  /* background-color: #fff; */
 }
-.menu{
-    max-width: 75vw;
-    /* Still need to figure out what is rem  */
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    /* background-color: red; */
+.menu {
+  max-width: 75vw;
+  /* Still need to figure out what is rem  */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.logo span {
+  font-weight: 100;
+}
+.hamburger-menu {
+  height: 4rem;
+  width: 3rem;
+  cursor: pointer;
+  /* background-color: black; */
+  display: flex;
+  /* line ko center karne ke liye ye use hua h */
+  align-items: center;
+  /* Rt side me shift karne ke liye tha */
+  justify-content: flex-end;
+}
+.bar {
+  /* length of line is determined using this */
+  width: 1.9rem;
+  background-color: white;
+  /* Height se line ki width nikal rahi h */
+  height: 1.5px;
+  border-radius: 2px;
+  transition: 0.5s;
+  position: relative;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #eee;
+  transition: 0.5s;
+}
+.bar:before {
+  /* Used for duplicating the line */
+  transform: translateY(-9px);
+}
+.bar:after {
+  transform: translateY(9px);
+}
+.main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  background-color: #fff;
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+header {
+  min-height: 100vh;
+  width: 100%;
+  background: url(/img/wp4586871.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 51, 59, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+  max-width: 35rem;
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+}
+.title{
+    font-size: 2.7rem;
+}
+.btn{
+    margin-top: 1rem;
+    padding: 0.6rem 1.8rem;
+    background-color: #dee7f023;
+    border: 2px solid white;
+    border-radius: 25px;
     color: white;
-
-}
-.logo{
-    font-size: 1.1rem;
-    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-
-}
-.logo span{
-    font-weight: 100;
-}
-.hamburger-menu{
-    height: 4rem;
-    width: 3rem;
     cursor: pointer;
-    /* background-color: black; */
-    display: flex;
-    /* line ko center karne ke liye ye use hua h */
-    align-items: center;
-    /* Rt side me shift karne ke liye tha */
-    justify-content: flex-end;
+    text-decoration: none;
 }
-.bar{
-   /* length of line is determined using this */
-    width: 1.9rem;
-    background-color: white;
-    /* Height se line ki width nikal rahi h */
-    height: 1.5px;
-    border-radius: 2px;
-    transition: 0.5s;
-    position: relative;
+
+.conatiner.active .bar{
+    transform: rotate(360deg);
+    background-color: transparent;
 }
-.bar:before, .bar:after{
-    content: "";
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: #eee;
-    transition: .5s;
+.conatiner.active .bar:before{
+    transform: translateY(0deg) rotate(45deg);
 }
-.bar:before{
-    /* Used for duplicating the line */
-    transform: translateY(-9px);
+.conatiner.active .bar:after{
+    transform: translateY(0deg) rotate(-45deg);
 }
-.bar:after{
-    transform: translateY(9px);
-}
-.main{
-    position: relative;
-    width: 100%;
-    left: 0;
-    z-index: 5;
-    background-color: #fff;
-    overflow: hidden;
-}
-header{
-    min-height: 100vh;
-    width: 100%;
-    background: url(/img/wp4586871.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-.overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(43,51,59,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.conatiner.active .main{
+    transform: perspective(1300px) rotateY(20deg) scale(0.5);
 }
